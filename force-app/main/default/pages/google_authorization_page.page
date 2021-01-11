@@ -1,0 +1,88 @@
+<apex:page showheader="false" sidebar="false" standardStylesheets="false">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"/>
+
+    
+    <apex:includeLightning />
+    
+    <div id="lightning" />
+
+    <script>
+         
+        var googlecode = "{!$CurrentPage.parameters.code}";
+        console.log(' Google codecode at page vf >>'+googlecode);
+        // searchstring = code;
+
+        $Lightning.use("c:getting_Authorization_Code_Component_App", function() {
+        $Lightning.createComponent("c:google_Access_Token_Comp",
+            {code : googlecode},
+            "lightning",
+            function(cmp) {
+            }
+        );
+        });
+    </script>
+
+
+<style type='text/css'>
+	.embeddedServiceHelpButton .helpButton .uiButton {
+		background-color: #005290;
+		font-family: "Arial", sans-serif;
+	}
+	.embeddedServiceHelpButton .helpButton .uiButton:focus {
+		outline: 1px solid #005290;
+	}
+</style>
+
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+<script type='text/javascript'>
+	var initESW = function(gslbBaseURL) {
+		embedded_svc.settings.displayHelpButton = true; //Or false
+		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+
+		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+
+		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+
+		// Settings for Chat
+		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+			// Returns a valid button ID.
+		//};
+		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+
+		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+		embedded_svc.settings.entryFeature = 'LiveAgent';
+
+		embedded_svc.init(
+			'https://cloudanalogy-2a-dev-ed.my.salesforce.com',
+			'https://parascaorg1-developer-edition.ap16.force.com',
+			gslbBaseURL,
+			'00D2w00000FabmA',
+			'Customer_Support',
+			{
+				baseLiveAgentContentURL: 'https://c.la2-c2-ukb.salesforceliveagent.com/content',
+				deploymentId: '5722w000000cgx4',
+				buttonId: '5732w000000cjbM',
+				baseLiveAgentURL: 'https://d.la2-c2-ukb.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I2w000000cAB6EAM_175da875cb0',
+				isOfflineSupportEnabled: false
+			}
+		);
+	};
+
+	if (!window.embedded_svc) {
+		var s = document.createElement('script');
+		s.setAttribute('src', 'https://cloudanalogy-2a-dev-ed.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.onload = function() {
+			initESW(null);
+		};
+		document.body.appendChild(s);
+	} else {
+		initESW('https://service.force.com');
+	}
+</script>
+</apex:page>

@@ -1,0 +1,19 @@
+<aura:component controller="google_access_token" implements="flexipage:availableForAllPageTypes">
+
+    <aura:attribute name="mapdata" type="List" />
+    <aura:attribute name="inputtext" type="String" />
+
+    <lightning:card class="slds-theme_alert-texture">
+
+        <lightning:input name="foldername" value="{!v.inputtext}" label="Enter Folder Name" placeholder="type here..."/>
+        <br/>
+        <lightning:button variant="success" label="Create" title="Success" onclick="{! c.getFolderName }"/><br/>
+        <br/>
+        <lightning:button variant="success" label="Drive Files" title="Success" onclick="{! c.handleClick }"/><br/>
+
+        <aura:iteration items="{!v.mapdata}" var="map" indexVar="key">
+                <a href="{!map.key}" target="_blank"> {!map.value}</a><br/>
+            </aura:iteration>
+    </lightning:card>
+
+</aura:component>

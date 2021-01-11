@@ -1,0 +1,31 @@
+<template>
+    
+    <lightning-card  title="Create Reconciliation">
+        <form>
+
+            <lightning-input class="inp" id="nameInput" name='firstName' label="First Name"></lightning-input>
+            <lightning-input class="inp" name='lastName' label="Last Name"></lightning-input>
+            <lightning-combobox
+            name="Status"
+            label="Status"
+            value={value}
+            placeholder="Select Status"
+            options={eventOptionsStatus}
+            onchange={handleChangeStatus}>
+        </lightning-combobox>
+        
+        <lightning-combobox
+            name="Source"
+            label="Source"
+            value={value}
+            placeholder="Select Source"
+            options={eventOptionsSource}
+            onchange={handleChangeSource}>
+        </lightning-combobox>
+        <lightning-input class="inp" name='email' label="Email"></lightning-input>
+        <lightning-input class="inp" name='phone' label="Phone"></lightning-input>
+        <p slot="footer"><lightning-button label='Create' onclick={handleSave} ></lightning-button></p>
+        <!-- <p slot="footer"><lightning-button label='Create' onclick={callother} ></lightning-button></p> -->
+    </form>
+    </lightning-card>
+</template>

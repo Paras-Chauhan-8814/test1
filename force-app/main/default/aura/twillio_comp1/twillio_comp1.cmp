@@ -1,0 +1,15 @@
+<aura:component controller="twillio_class" implements="flexipage:availableForAllPageTypes">
+
+<aura:attribute name="messageBody" type="String" default=""/>
+<aura:attribute name="to" type="String" default=""/>
+<aura:attribute name="from" type="String" default=""/>
+
+<lightning:card class="slds-theme_alert-texture">
+
+    <!-- <lightning:input name="fromnumber" value="{!v.from}" label="FROM" placeholder="Enter your NUmber"/><br/> -->
+    <lightning:input name="tonumber" value="{!v.to}" label="TO" placeholder="Enter Verified Number...."/><br/>
+    <lightning:input name="body" value="{!v.messageBody}" label="Enter Text" placeholder=""/><br/>
+    <lightning:button variant="success" label="SEND" title="Success" onclick="{! c.send }"/><br/>
+
+</lightning:card>
+</aura:component>

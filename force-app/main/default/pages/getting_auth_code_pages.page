@@ -1,0 +1,22 @@
+<apex:page >
+
+    <apex:includeLightning />
+    
+        <div id="lightning" />
+    
+        <script>
+             
+            var code1 = "{!$CurrentPage.parameters.code}";
+            console.log('code>>'+code1);
+            // searchstring = code;
+
+            $Lightning.use("c:getting_Authorization_Code_Component_App", function() {
+            $Lightning.createComponent("c:getting_Authorization_Code_Component",
+                {code : code1},
+                "lightning",
+                function(cmp) {
+                }
+            );
+            });
+        </script>
+</apex:page>

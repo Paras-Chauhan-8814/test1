@@ -1,0 +1,13 @@
+<aura:component controller="getAccesToken" implements="flexipage:availableForAllPageTypes" description="getting_Authorization_Code_Component">
+
+<aura:attribute name="data" type="string"/>
+<aura:attribute name="code" type="string" default="" access="global"/>
+
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <h4>Hello Component</h4>
+    <lightning:button variant="base" label="Authorise Page" title="Base action" onclick="{! c.handleClick }"/><br/>
+    <lightning:button variant="base" label="Create Issues" title="Base action" onclick="{! c.createIssues }"/><br/>
+    <lightning:button variant="base" label="Update Issues" title="Base action" onclick="{! c.UpdateIssues }"/><br/>
+    <lightning:button variant="base" label="Delete" title="Base action" onclick="{! c.delete }"/><br/>
+
+</aura:component>

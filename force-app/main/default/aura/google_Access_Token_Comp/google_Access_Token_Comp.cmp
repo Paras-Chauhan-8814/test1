@@ -1,0 +1,10 @@
+<aura:component controller="google_access_token" implements="flexipage:availableForAllPageTypes">
+
+        <!-- <aura:attribute name="data" type="string"/> -->
+        <aura:attribute name="code" type="string" default="" access="global"/>
+    
+        <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+        <lightning:button variant="base" label="Get Authorization Code" title="Base action" onclick="{! c.handleClick }"/><br/>
+        <lightning:button variant="base" label="Create Issues" title="Base action" onclick="{! c.createIssues }"/><br/>
+
+</aura:component>
