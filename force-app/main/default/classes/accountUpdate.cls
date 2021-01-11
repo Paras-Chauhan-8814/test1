@@ -13,6 +13,7 @@ public with sharing class accountUpdate {
         Catch(Exception exp) {
             system.debug('The following exception has occurred in Class accountUpdate method "stopAccountUpdation" : ' + exp.getMessage() +
                         ' at Line no: ' + exp.getLineNumber());
+                        
         }
     }
 
