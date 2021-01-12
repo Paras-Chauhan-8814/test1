@@ -16,9 +16,7 @@ public with sharing class accountUpdate {
         }
     }  
     public static void createDefaultContact(Map<ID, Account> accMap) {
-
         List<Contact> createContactList = new List<Contact>();
-
         try {
 
             for(Account a : accMap.Values()) {
