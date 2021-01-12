@@ -13,11 +13,8 @@ public with sharing class accountUpdate {
         Catch(Exception exp) {
             system.debug('The following exception has occurred in Class accountUpdate method "stopAccountUpdation" : ' + exp.getMessage() +
                         ' at Line no: ' + exp.getLineNumber());    
-
         }
     }  
-    
-
     public static void createDefaultContact(Map<ID, Account> accMap) {
 
         List<Contact> createContactList = new List<Contact>();
