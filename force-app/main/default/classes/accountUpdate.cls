@@ -15,7 +15,8 @@ public with sharing class accountUpdate {
                         ' at Line no: ' + exp.getLineNumber());    
 
         }
-    }
+    }  
+    
 
     public static void createDefaultContact(Map<ID, Account> accMap) {
 
